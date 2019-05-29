@@ -1,5 +1,6 @@
 package com.jvn;
 
+import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -8,6 +9,7 @@ public class DanielDayLewisQuote {
 
   private long id;
   private String noun;
+  private Random random = new SecureRandom();
 
   private static final List<String> QUOTES = Arrays.asList(
       "I drink your %s! I drink it up!", // There will be blood
@@ -27,7 +29,6 @@ public class DanielDayLewisQuote {
   }
 
   public String getQuote() {
-    Random random = new Random();
     int index = random.nextInt(QUOTES.size());
     return String.format(QUOTES.get(index), noun);
   }
